@@ -1,5 +1,5 @@
-local objects = import "../templates/objects.jsonnet";
+local objects = import "../templates/objects.libsonnet";
 
 {
-  app: objects.pod('app')
+  app: objects.app('app')
 }
