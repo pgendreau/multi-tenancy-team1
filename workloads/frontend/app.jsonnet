@@ -1,4 +1,4 @@
-local kube = import "jsonnet/lib/kube.libsonnet";
+local kube = import "../../jsonnet/lib/kube.libsonnet";
 
 local pod(name) = {
   deployment: kube.Deployment(name) {
@@ -18,11 +18,13 @@ local pod(name) = {
               },
               command: [
                 './podinfo',
-                '--port=9898',
-                '--level=info',
-                '--random-delay=false',
-                '--random-error=false',
               ],
+              args_+: {
+                'port': '9898',
+                'level': 'info',
+                'random-delay': 'false',
+                'random-error': 'false',
+              },
             },
           },
         },
@@ -35,9 +37,25 @@ local pod(name) = {
   },
 };
 
-local apps = [
-    "backend",
-    "frontend",
-  ];
- 
-{ [a]: pod(a) for a in apps }
+{
+  frontend: pod("frontend") {
+    deployment+: {
+      spec+: {
+        template+: {
+          spec+: {
+            containers_+: {
+              podinfo+: {
+                env_+: {
+                  FOO: "bar",
+                },
+                args_+: {
+                  'backend-url': 'http://backend:9898/echo',
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+}
