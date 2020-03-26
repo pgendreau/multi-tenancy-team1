@@ -1,6 +1,5 @@
 version: 1
 patchUpdated:
   generators:
-    - command: kubecfg update default.jsonnet
-    - command: kustomize build .
+    - command: /tmp/kubecfg update workloads/*/app.jsonnet
   patchFile: flux-patch.yaml
