@@ -11,7 +11,7 @@ local objects = import "../../jsonnet/templates/objects.libsonnet";
               podinfo+: {
                 env_+: {
                   FOO: "boz",
-                  TEST: "test",
+                  TEST: "test2",
                 },
               },
             },
