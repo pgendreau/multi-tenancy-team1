@@ -9,7 +9,7 @@ local objects = import "../../jsonnet/templates/objects.libsonnet";
             containers_+: {
               podinfo+: {
                 env_+: {
-                  FOO: "bAr",
+                  FOO: "bar",
                 },
                 args_+: {
                   'backend-url': 'http://backend:9898/echo',
