@@ -1,5 +1,4 @@
 version: 1
-patchUpdated:
+commandUpdated:
   generators:
     - command: kubecfg show workloads/*/app.jsonnet
-  patchFile: flux-patch.yaml
