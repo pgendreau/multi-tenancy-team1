@@ -1,4 +1,3 @@
-local kube = import "../../jsonnet/lib/kube.libsonnet";
 local objects = import "../../jsonnet/templates/objects.libsonnet";
 
 {
