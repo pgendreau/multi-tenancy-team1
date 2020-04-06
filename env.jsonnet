@@ -1,10 +1,8 @@
-local env = 'team1';
-local type = 'njha';
-local zone = 'bo';
+local appgroup = std.extVar("appgroup");
+local zone = std.extVar("zone");
+local env = std.extVar("env");
 
-#local namespace = std.join('-', [env, type, zone]);
-local namespace = env;
-
+local namespace = std.join('-', [appgroup, zone, env]);
 
 local backend = import "workloads/backend/app.jsonnet";
 local frontend = import "workloads/frontend/app.jsonnet";
@@ -18,7 +16,7 @@ local frontend = import "workloads/frontend/app.jsonnet";
         namespace: namespace,
         labels+: {
           env: env,
-          type: type,
+          appgroup: appgroup,
           zone: zone,
         },
       },
@@ -28,7 +26,7 @@ local frontend = import "workloads/frontend/app.jsonnet";
         namespace: namespace,
         labels+: {
           env: env,
-          type: type,
+          appgroup: appgroup,
           zone: zone,
         },
       },
@@ -40,7 +38,7 @@ local frontend = import "workloads/frontend/app.jsonnet";
         namespace: namespace,
         labels+: {
           env: env,
-          type: type,
+          appgroup: appgroup,
           zone: zone,
         },
       },
@@ -50,7 +48,7 @@ local frontend = import "workloads/frontend/app.jsonnet";
         namespace: namespace,
         labels+: {
           env: env,
-          type: type,
+          appgroup: appgroup,
           zone: zone,
         },
       },

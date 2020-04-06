@@ -1,5 +1,5 @@
 version: 1
 patchUpdated:
   generators:
-    - command: kubecfg show workloads/*/app.jsonnet
+    - command: kubecfg show --ext-str "appgroup=$LQAPPGROUP" --ext-str "zone=$LQZONE" --ext-str "env=$LQENV" env.jsonnet
   patchFile: flux-patch.yaml
