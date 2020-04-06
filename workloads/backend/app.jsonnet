@@ -5,7 +5,7 @@ local objects = import "../../jsonnet/templates/objects.libsonnet";
     deployment+: {
       metadata+: {
         labels+: {
-          env: 'na',
+          cluster: 'lab',
         },
       },
       spec+: {
